@@ -1,0 +1,208 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --background-color: rgb(223, 202, 255);
+    --sidebar-bg: #fff;
+    --text-color: #000;
+}
+.dark{
+    --background-color: rgb(17, 17, 17);
+    --sidebar-bg: rgb(39, 39, 39);
+    --text-color: rgb(228, 228, 228);
+}
+body{
+    background: var(--background-color);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+    min-height: 100vh;
+    color: var(--text-color);
+}
+
+/* ====== Sidebar ====== */
+.sidebar{
+    background: var(--sidebar-bg);
+    width: 300px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+}
+.sidebar header{
+    display: flex;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    padding: 10px;
+}
+.sidebar .sidebar-toggle{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(50%,-50%) rotate(180deg);
+    text-align: center;
+    line-height: 2rem;
+    background: rgb(138, 71, 255);
+    color: #fff;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+.sidebar .brand-image img{
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.sidebar .brand-name{
+    font-size: 2rem;
+    margin: auto;
+    transition: 0.5s;
+}
+.sidebar .brand-slogan{
+    font-size: 1rem;
+    display: block;
+}
+
+.sidebar-menu .menu-item{
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 20px;
+    cursor: pointer;
+    list-style: none;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+.sidebar-menu .menu-item:hover{
+    background: rgb(138, 71, 255);
+    color: #fff;
+}
+.sidebar .item-name,
+.sidebar .brand-name{
+    transition: opacity 1s;
+}
+.sidebar-menu .menu-item i,
+.sidebar-footer .footer-item i{
+   width: 50px;
+   height: 100%;
+   text-align: center;
+}
+.sidebar-footer .footer-item{
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* ====== Sidebar Close ====== */
+.sidebar.close{
+    width: 70px;
+}
+.sidebar.close .sidebar-menu .menu-item i,
+.sidebar.close .sidebar-footer .footer-item i {
+    width: 33px;
+}
+.sidebar.close .item-name,
+.sidebar.close .brand-name{
+    transition: opacity 0.3s;
+    opacity: 0;
+}
+.sidebar.close .sidebar-toggle{
+    transform: translate(50%,-50%) rotate(0deg);
+}
+
+
+/* ======= Dark Mode ======= */
+body.dark{
+    background: var(--background-color);
+}
+.dark .sidebar{
+    background: var(--sidebar-bg);
+    color: var(--text-color);
+}
+
+
+
+.container{
+    width: calc( 100% - 300px );
+    float: right;
+    padding: 1.5rem;
+    transition: 0.5s;
+}
+
+.container.wsidebar{
+    width: calc( 100% - 70px );
+    float: right
+}
+
+/* ====== Switch Button START ====== */
+#dark-toggle{
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+    margin: 0 5px;
+    /* padding: 10px 0; */
+    border-radius: 20px;
+    background: rgb(177, 177, 177);
+    transition: 1s;
+    position: absolute;
+    right: 0;
+}
+#dark-toggle::after{
+    content: '';
+    height: 80%;
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    background: rgb(93, 93, 93);
+    border-radius: 20px;
+    transition: 0.3s;
+}
+#dark-toggle.active{
+    background: rgba(0, 211, 18, 0.415);
+}
+#dark-toggle.active::after{
+    background: rgb(26, 155, 0);
+    left: 45%;
+}
+/* ====== Switch Button END ====== */
+
+
+
+/* Social Icons */
+.social-icon{
+    text-align: center;
+    padding-top: 20px;
+    height: 10vh;
+}
+.social-icon i{
+    color: var(--text-color);
+    font-size: 2rem;
+    margin: 0 5px;
+}
+
+/* ul{
+    width: 400px;
+}
+ul li{
+     list-style: none;
+     width: 100%;
+     padding: 10px 0;
+     background: #fff;
+     background: linear-gradient(rgb(236, 236, 236) ,rgb(255, 255, 255) 50%,rgb(236, 236, 236));
+     font-size: 2rem;
+     text-align: center;
+     margin: 1px 0;
+ }
+ ul li:nth-child(even){
+    transform: skew(10deg);
+ }
+ ul li:nth-child(odd){
+    transform: skew(-10deg);
+} */
